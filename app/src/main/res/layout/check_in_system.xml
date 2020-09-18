@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    >
+
+
+<TableRow
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/biankuang"
+    >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="        姓名        "
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="         电话        "
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="         QQ         "
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   是否到达   "
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    签到    "
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+
+
+
+</TableRow>
+
+
+
+<!--    *******************************第一个人******************************-->
+
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="         "
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/biankuang">
+
+        <TextView
+            android:id="@+id/name001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/phone001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/QQ001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/signin001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/change001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+
+
+
+
+    </TableRow>
+
+
+
+
+</TableLayout>
