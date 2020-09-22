@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CheckInSystem"></activity>
+        <activity android:name=".CreatData"></activity>
     </application>
 
 </manifest>

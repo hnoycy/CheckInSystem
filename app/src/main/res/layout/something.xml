@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            >
+        </TextView>
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/biankuang">
+
+        <TextView
+            android:id="@+id/id002"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/name002"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            >
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/phone002"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/QQ002"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center"
+
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/signin002"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/change002"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/baise"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            >
+        </TextView>
+
+
+
+
+    </TableRow>
+
+</LinearLayout>
