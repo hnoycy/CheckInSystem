@@ -3,19 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:background="@color/baise"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_gravity="center"
-            >
-        </TextView>
-    </TableRow>
 
 
     <TableRow
@@ -24,7 +11,7 @@
         android:background="@color/biankuang">
 
         <TextView
-            android:id="@+id/id002"
+            android:text="序号"
             android:layout_width="30dp"
             android:layout_height="20dp"
             android:background="@color/baise"
@@ -38,6 +25,7 @@
 
         <TextView
             android:id="@+id/name002"
+            android:text="姓名"
             android:layout_width="75dp"
             android:layout_height="20dp"
             android:background="@color/baise"
@@ -52,6 +40,7 @@
 
         <TextView
             android:id="@+id/phone002"
+            android:text="手机号"
             android:layout_width="75dp"
             android:layout_height="20dp"
             android:background="@color/baise"
@@ -65,13 +54,14 @@
 
         <TextView
             android:id="@+id/QQ002"
+            android:text="QQ"
             android:layout_width="75dp"
             android:layout_height="20dp"
             android:background="@color/baise"
             android:layout_marginRight="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="1dp"
-            android:layout_gravity="center"
+            android:gravity="center"
 
             >
         </TextView>
@@ -79,6 +69,7 @@
         <TextView
             android:id="@+id/signin002"
             android:layout_width="75dp"
+            android:text="是否到达"
             android:layout_height="20dp"
             android:background="@color/baise"
             android:layout_marginRight="1dp"
@@ -92,6 +83,7 @@
             android:id="@+id/change002"
             android:layout_width="match_parent"
             android:layout_height="20dp"
+            android:text="签到"
             android:background="@color/baise"
             android:layout_marginRight="1dp"
             android:layout_marginTop="1dp"

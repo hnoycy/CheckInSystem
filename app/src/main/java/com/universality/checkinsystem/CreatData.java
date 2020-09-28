@@ -34,29 +34,48 @@ public class CreatData extends AppCompatActivity {
         //删除数据表
         DB.execSQL("DROP TABLE IF EXISTS CheckInData");
         Log.i("删除数据表","成功");
-        DB.execSQL("CREATE TABLE CheckInData(_id String,name String,phone String,QQ String,CheckIn String,Change String)");
+        DB.execSQL("CREATE TABLE CheckInData(_id integer primary key autoincrement,name String,phone String,QQ String,CheckIn String,Change String)");
         Log.i("创建数据表","成功");
 
         //插入数据
         //第一个人
-        String[] name00001 = new String[]{"00001","欧阳成邑","13574272577","1547559269","已到","点击取消"};
-//        String name00001 = "欧阳成邑";
-//        String phone00001 = "13574272577";
-//        String QQ00001 = "1547559269";
-//        String CheckIn00001 = "true";
-        DB.execSQL("insert into CheckInData(_id ,name,phone,QQ,CheckIn,Change) values(?,?,?,?,?,?)", name00001);
+//        String[] name00001 = new String[]{"欧阳成邑","13574272577","1547559269","是","点击取消"};
+//        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values(?,?,?,?,?)", name00001);
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('欧阳成邑','13574272577','1547559269','是','点击取消')");
         String creat_data00001 = "加载完成1%";
         textView.setText(creat_data00001);
         Log.i("数据库写入","0001%");
 
         //第二个人
-        String[] name00002 = new String[]{"00002","党志豪","13574272577","1547559269","已到","点击取消"};
-        DB.execSQL("insert into CheckInData(_id,name,phone,QQ,CheckIn,Change) values(?,?,?,?,?,?)", name00002);
+//        String[] name00002 = new String[]{"党志豪","13574272577","1547559269","是","点击取消"};
+//        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values(?,?,?,?,?)", name00002);
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
         String creat_data0002 = "加载完成2%";
         textView.setText(creat_data0002);
         Log.i("数据库写入","0002%");
 
-
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
+        DB.execSQL("insert into CheckInData(name,phone,QQ,CheckIn,Change) values('党志豪','13574272577','1547559269','是','点击取消')");
         Intent intent = new Intent(CreatData.this,CheckInSystem.class);
         startActivity(intent);
 

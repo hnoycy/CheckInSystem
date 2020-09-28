@@ -1,198 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    >
+>
 
-
-<TableRow
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/biankuang"
-    >
-
-    <TextView
-        android:layout_width="30dp"
-        android:layout_height="20dp"
-        android:text="序号"
-        android:background="@color/baise"
-        android:layout_marginRight="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginBottom="1dp"
-        android:gravity="center"
-        >
-    </TextView>
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="20dp"
-            android:text="姓名"
-            android:background="@color/baise"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginBottom="1dp"
-            android:gravity="center"
-            >
-        </TextView>
-
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="20dp"
-            android:text="电话"
-            android:background="@color/baise"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:gravity="center"
-
-            >
-        </TextView>
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="20dp"
-            android:text="QQ"
-            android:background="@color/baise"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:gravity="center"
-
-            >
-        </TextView>
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="20dp"
-            android:text="是否到达"
-            android:background="@color/baise"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:gravity="center"
-            >
-        </TextView>
-
-        <TextView
-            android:layout_width="75dp"
-            android:layout_height="20dp"
-            android:text="签到"
-            android:background="@color/baise"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:gravity="center"
-            >
-        </TextView>
-
-
-
-
-</TableRow>
-
-
-
-<!--&lt;!&ndash;    *******************************第一个人******************************&ndash;&gt;-->
-
-<!--    <TableRow>-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="         "-->
-<!--            android:background="@color/baise"-->
-<!--            android:layout_marginRight="1dp"-->
-<!--            android:layout_marginTop="1dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            >-->
-<!--        </TextView>-->
-<!--    </TableRow>-->
-<!--    <TableRow-->
+<!--    <TableLayout-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/biankuang">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/name001"-->
-<!--            android:layout_width="75dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:background="@color/baise"-->
-<!--            android:layout_marginRight="1dp"-->
-<!--            android:layout_marginTop="1dp"-->
-<!--            android:layout_marginLeft="1dp"-->
-<!--            android:layout_marginBottom="1dp"-->
-<!--            android:gravity="center"-->
-<!--            >-->
-<!--        </TextView>-->
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/phone001"-->
-<!--            android:layout_width="75dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:background="@color/baise"-->
-<!--            android:layout_marginRight="1dp"-->
-<!--            android:layout_marginTop="1dp"-->
-<!--            android:layout_marginBottom="1dp"-->
-<!--            android:gravity="center"-->
-
-<!--            >-->
-<!--        </TextView>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/QQ001"-->
-<!--            android:layout_width="75dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:background="@color/baise"-->
-<!--            android:layout_marginRight="1dp"-->
-<!--            android:layout_marginTop="1dp"-->
-<!--            android:layout_marginBottom="1dp"-->
-<!--            android:gravity="center"-->
-
-<!--            >-->
-<!--        </TextView>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/signin001"-->
-<!--            android:layout_width="75dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:background="@color/baise"-->
-<!--            android:layout_marginRight="1dp"-->
-<!--            android:layout_marginTop="1dp"-->
-<!--            android:layout_marginBottom="1dp"-->
-<!--            android:gravity="center"-->
-<!--            >-->
-<!--        </TextView>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/change001"-->
-<!--            android:layout_width="75dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:background="@color/baise"-->
-<!--            android:layout_marginRight="1dp"-->
-<!--            android:layout_marginTop="1dp"-->
-<!--            android:layout_marginBottom="1dp"-->
-<!--            android:gravity="center"-->
-<!--            >-->
-<!--        </TextView>-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:orientation="vertical">-->
 
 
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/biankuang">
+
+            <TextView
+                android:id="@+id/Name0001"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/baise"
+                android:gravity="center"
+                android:text="序号"></TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/baise"
+                android:gravity="center"
+                android:text="姓名"></TextView>
 
 
-<!--    </TableRow>-->
-    <!--*********************数据库*********************-->
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/baise"
+                android:gravity="center"
+                android:text="电话"
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ListView"></ListView>
+                ></TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/baise"
+                android:gravity="center"
+                android:text="QQ"
+
+                ></TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/baise"
+                android:gravity="center"
+                android:text="是否到达"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/baise"
+                android:gravity="center"
+                android:text="签到"></TextView>
 
 
+        </TableRow>
 
-</TableLayout>
+
+        <!--&lt;!&ndash;    *******************************第一个人******************************&ndash;&gt;-->
+
+        <!--    <TableRow>-->
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="         "-->
+        <!--            android:background="@color/baise"-->
+        <!--            android:layout_marginRight="1dp"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            >-->
+        <!--        </TextView>-->
+        <!--    </TableRow>-->
+        <!--    <TableRow-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:background="@color/biankuang">-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/name001"-->
+        <!--            android:layout_width="75dp"-->
+        <!--            android:layout_height="20dp"-->
+        <!--            android:background="@color/baise"-->
+        <!--            android:layout_marginRight="1dp"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:layout_marginLeft="1dp"-->
+        <!--            android:layout_marginBottom="1dp"-->
+        <!--            android:gravity="center"-->
+        <!--            >-->
+        <!--        </TextView>-->
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/phone001"-->
+        <!--            android:layout_width="75dp"-->
+        <!--            android:layout_height="20dp"-->
+        <!--            android:background="@color/baise"-->
+        <!--            android:layout_marginRight="1dp"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:layout_marginBottom="1dp"-->
+        <!--            android:gravity="center"-->
+
+        <!--            >-->
+        <!--        </TextView>-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/QQ001"-->
+        <!--            android:layout_width="75dp"-->
+        <!--            android:layout_height="20dp"-->
+        <!--            android:background="@color/baise"-->
+        <!--            android:layout_marginRight="1dp"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:layout_marginBottom="1dp"-->
+        <!--            android:gravity="center"-->
+
+        <!--            >-->
+        <!--        </TextView>-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/signin001"-->
+        <!--            android:layout_width="75dp"-->
+        <!--            android:layout_height="20dp"-->
+        <!--            android:background="@color/baise"-->
+        <!--            android:layout_marginRight="1dp"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:layout_marginBottom="1dp"-->
+        <!--            android:gravity="center"-->
+        <!--            >-->
+        <!--        </TextView>-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/change001"-->
+        <!--            android:layout_width="75dp"-->
+        <!--            android:layout_height="20dp"-->
+        <!--            android:background="@color/baise"-->
+        <!--            android:layout_marginRight="1dp"-->
+        <!--            android:layout_marginTop="1dp"-->
+        <!--            android:layout_marginBottom="1dp"-->
+        <!--            android:gravity="center"-->
+        <!--            >-->
+        <!--        </TextView>-->
+
+
+        <!--    </TableRow>-->
+        <!--*********************数据库*********************-->
+
+    <com.universality.checkinsystem.ListViewForScrollView
+        android:id="@+id/ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.universality.checkinsystem.ListViewForScrollView>
+
+        <!--******************************增加键***************************-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_add_black_24dp" />
+
+
+<!--    </TableLayout>-->
+
+</LinearLayout>
+</ScrollView>
