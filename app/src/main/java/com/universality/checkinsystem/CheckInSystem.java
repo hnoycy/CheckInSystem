@@ -183,7 +183,7 @@ public class CheckInSystem extends AppCompatActivity {
 
 
 
-        // ***************************长按删除***********************
+        // ***************************长按修改***********************
         values.setOnItemLongClickListener(new OnItemLongClickListener() {
 
             @Override
@@ -203,7 +203,7 @@ public class CheckInSystem extends AppCompatActivity {
                 final String SQQ = tvQQ.getText().toString();
 
                 // 通过Dialog弹出修改界面
-                AlertDialog.Builder builder = new Builder(CheckInSystem.this);
+                final AlertDialog.Builder builder = new Builder(CheckInSystem.this);
                 builder.setTitle("修改");
 
                 // 自定义修改页
@@ -234,12 +234,27 @@ public class CheckInSystem extends AppCompatActivity {
                 builder.setView(v);
 
 
-                // 确定按钮点击事件
+                // 删除按钮点击事件
                 builder.setNeutralButton("删除", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        delete(_id);
-                        replaceList();// 删除后刷新列表
+
+                        AlertDialog.Builder builder1 = new Builder(CheckInSystem.this);
+                        builder1.setTitle("确定要删除吗？");
+                        builder1.setPositiveButton("确定", new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                delete(_id);
+                                replaceList();// 删除后刷新列表
+                            }
+                        });
+                        builder1.setNeutralButton("取消", new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder1.create().show();
 
                     }
                 });
