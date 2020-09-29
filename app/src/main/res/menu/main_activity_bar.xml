@@ -7,6 +7,13 @@
         app:showAsAction="always"
         android:title="重置"
         ></item>
+    <item
+        android:id="@+id/OneClickSignIn"
+        android:icon="@drawable/ic_check_black_24dp"
+        app:showAsAction="always"
+        android:title="一键签到"
+        ></item>
+
 
 
 </menu>

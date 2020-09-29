@@ -44,7 +44,7 @@ public class CheckInSystem extends AppCompatActivity {
 
     private DBOpenHelper dbOpenHelper;
 
-    //***************************重置键*********************************
+    //***************************重置键、一键签到键*********************************
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -56,6 +56,7 @@ public class CheckInSystem extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            //重置键
             case R.id.returnback:
                 //设置弹出窗口
                 AlertDialog.Builder builder = new AlertDialog.Builder(CheckInSystem.this);
@@ -77,9 +78,26 @@ public class CheckInSystem extends AppCompatActivity {
                 builder.create().show();
 
                 return true;
-//            case R.id.write_p:
-//                Toast.makeText(this, "你点击了“发布”按键！", Toast.LENGTH_SHORT).show();
-//                return true;
+            case R.id.OneClickSignIn:
+                //设置弹出窗口
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(CheckInSystem.this);
+                builder1.setMessage("确定要一键签到吗");
+                builder1.setPositiveButton("确定", new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        OneClickSignIn();
+                    }
+                });
+                builder1.setNeutralButton("取消", new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                builder1.create().show();
+
+
+                return true;
 //            case R.id.favo_p:
 //                Toast.makeText(this, "你点击了“收藏”按键！", Toast.LENGTH_SHORT).show();
 //                return true;
@@ -583,5 +601,17 @@ public class CheckInSystem extends AppCompatActivity {
         Intent intent = new Intent(CheckInSystem.this,CreatData.class);
         startActivity(intent);
 
+    }
+
+    /**
+     * 一键签到摁扭
+     */
+
+    public void OneClickSignIn(){
+        dbOpenHelper = new DBOpenHelper(CheckInSystem.this,"CheckIn",null,1);
+        SQLiteDatabase DB = dbOpenHelper.getWritableDatabase();
+        DB.execSQL("UPDATE CheckInData SET CheckIn = '是'");
+        DB.execSQL("UPDATE CheckInData SET Change = '点击取消'");
+        replaceList();
     }
 }

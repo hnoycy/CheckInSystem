@@ -15,7 +15,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
     //创建数据表
-    final  String createSql = "create table CheckInData(_id integer primary key autoincrement,name,phone,QQ,CheckIn)";
+    final  String createSql = "create table CheckInData(_id integer primary key autoincrement,name,phone,QQ,CheckIn,Change)";
 
     public DBOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, null, version);
