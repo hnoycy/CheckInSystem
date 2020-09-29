@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -243,159 +244,31 @@ public class CheckInSystem extends AppCompatActivity {
 
         values.setAdapter(adapter);
 
+        //所有数据操作
+        FrontRowDisplay(values);
+
+        //设置未到顶页展示
+        String selectSQLNO = "select _id,name,phone,QQ,CheckIn,Change from CheckInData where CheckIn = '未到达'";
+        Cursor cursorNo = DB.rawQuery(selectSQLNO,null);
+        SimpleCursorAdapter adapterNo = new SimpleCursorAdapter(this,
+                R.layout.show, cursorNo, new String[]{"_id", "name",
+                "phone","QQ","CheckIn","Change"}, new int[]{R.id.id002, R.id.name002,
+                R.id.phone002,R.id.QQ002,R.id.signin002,R.id.change002},
+                SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+
+        adapterNo.setViewBinder(viewBinder);
+
+        final ListView valuesNo = (ListView)findViewById(R.id.ListViewNo);
+        valuesNo.setAdapter(adapterNo);
+
+
+        //前排显示操作
+        FrontRowDisplay(valuesNo);
 
 
 
 
 
-
-        // ***************************长按修改***********************
-        values.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-                                           int arg2, long arg3) {
-                // 获取所点击项的_id
-                TextView tv = (TextView) arg1.findViewById(R.id.id002);
-                final String _id = tv.getText().toString();
-                // 获取所点击项的名字
-                TextView tvName = (TextView)arg1.findViewById(R.id.name002) ;
-                final String Sname = tvName.getText().toString();
-                // 获取所点击项的手机号
-                TextView tvPhone = (TextView)arg1.findViewById(R.id.phone002);
-                final String SPhone = tvPhone.getText().toString();
-                // 获取所点击项的QQ号
-                TextView tvQQ = (TextView)arg1.findViewById(R.id.QQ002);
-                final String SQQ = tvQQ.getText().toString();
-
-                // 通过Dialog弹出修改界面
-                final AlertDialog.Builder builder = new Builder(CheckInSystem.this);
-                builder.setTitle("修改");
-
-                // 自定义修改页
-                View v = View.inflate(CheckInSystem.this,R.layout.change,null);
-                final EditText Name00003 = (EditText)v.findViewById(R.id.Name0003);
-
-                final EditText Phone00003 = (EditText)v.findViewById(R.id.Phone0003);
-
-                final EditText QQ00003 = (EditText)v.findViewById(R.id.QQ0003);
-
-                Button phone = (Button)v.findViewById(R.id.buttonPhone);
-                phone.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String PhoneNumber = Phone00003.getText().toString();
-                        Intent Intent =  new Intent(android.content.Intent.ACTION_DIAL, Uri.parse("tel:" + PhoneNumber));//跳转到拨号界面，同时传递电话号码
-                        startActivity(Intent);
-
-                    }
-                });
-
-                // Dialog弹出原内容
-
-                Name00003.setText(Sname);
-                Phone00003.setText(SPhone);
-                QQ00003.setText(SQQ);
-
-                builder.setView(v);
-
-
-                // 删除按钮点击事件
-                builder.setNeutralButton("删除", new OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        AlertDialog.Builder builder1 = new Builder(CheckInSystem.this);
-                        builder1.setTitle("确定要删除吗？");
-                        builder1.setPositiveButton("确定", new OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                delete(_id);
-                                replaceList();// 删除后刷新列表
-                            }
-                        });
-                        builder1.setNeutralButton("取消", new OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        });
-                        builder1.create().show();
-
-                    }
-                });
-                // 取消按钮点击事件
-                builder.setNegativeButton("取消", new OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                // 确定按钮点击事件
-                builder.setPositiveButton("保存", new OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String newName = Name00003.getText().toString();
-                        String newPhone = Phone00003.getText().toString();
-                        String newQQ = QQ00003.getText().toString();
-                        updata(newName, newPhone, newQQ ,_id);
-                        replaceList();// 更新后刷新列表
-
-                    }
-                });
-                builder.create().show();
-
-//                // 通过Dialog提示是否删除
-//                AlertDialog.Builder builder = new AlertDialog.Builder(
-//                        CheckInSystem.this);
-//                builder.setMessage("确定要删除吗？");
-//
-//                // 取消按钮点击事件
-//                builder.setNegativeButton("取消", new OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//                builder.create().show();
-
-                return true;
-            }
-        });
-
-        //*************************短按修改**********************
-
-
-        values.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-                // 获取所点击项的_id
-                TextView tv = (TextView) view.findViewById(R.id.id002);
-                final String _id = tv.getText().toString();
-
-                // 获取到达状态
-                TextView signin00002 = (TextView)view.findViewById(R.id.signin002);
-                final String SSigin = signin00002.getText().toString();
-
-                // 获取“点击签到”
-                TextView change00002 = (TextView)view.findViewById(R.id.change002);
-                final String SChange = change00002.getText().toString();
-
-                if ("是".equals(SSigin)){
-                    Log.i("是否为是",SSigin);
-                    change("未到达","点击签到",_id);
-                }else{
-                    change("是","点击取消",_id);
-                }
-
-                replaceList();// 更新后刷新列表
-                Log.i("修改后数据",SSigin);
-            }
-        });
 //        String useful = textView.getText().toString();
 //        if (useful == "已到"){
 //            textView.setTextColor(Color.parseColor("#23FF00"));
@@ -565,6 +438,21 @@ public class CheckInSystem extends AppCompatActivity {
         values.setAdapter(adapter);
         Log.i("刷新数据表","成功");
 
+        //设置未到顶页展示
+        String selectSQLNO = "select _id,name,phone,QQ,CheckIn,Change from CheckInData where CheckIn = '未到达'";
+        Cursor cursorNo = DB.rawQuery(selectSQLNO,null);
+        SimpleCursorAdapter adapterNo = new SimpleCursorAdapter(this,
+                R.layout.show, cursorNo, new String[]{"_id", "name",
+                "phone","QQ","CheckIn","Change"}, new int[]{R.id.id002, R.id.name002,
+                R.id.phone002,R.id.QQ002,R.id.signin002,R.id.change002},
+                SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+
+        adapterNo.setViewBinder(viewBinder);
+
+        final ListView valuesNo = (ListView)findViewById(R.id.ListViewNo);
+        valuesNo.setAdapter(adapterNo);
+
+
     }
 
     /**
@@ -613,5 +501,156 @@ public class CheckInSystem extends AppCompatActivity {
         DB.execSQL("UPDATE CheckInData SET CheckIn = '是'");
         DB.execSQL("UPDATE CheckInData SET Change = '点击取消'");
         replaceList();
+    }
+    /**
+     * 前排显示
+     */
+    public void FrontRowDisplay(ListView values){
+        values.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           int arg2, long arg3) {
+                // 获取所点击项的_id
+                TextView tv = (TextView) arg1.findViewById(R.id.id002);
+                final String _id = tv.getText().toString();
+                // 获取所点击项的名字
+                TextView tvName = (TextView)arg1.findViewById(R.id.name002) ;
+                final String Sname = tvName.getText().toString();
+                // 获取所点击项的手机号
+                TextView tvPhone = (TextView)arg1.findViewById(R.id.phone002);
+                final String SPhone = tvPhone.getText().toString();
+                // 获取所点击项的QQ号
+                TextView tvQQ = (TextView)arg1.findViewById(R.id.QQ002);
+                final String SQQ = tvQQ.getText().toString();
+
+                // 通过Dialog弹出修改界面
+                final AlertDialog.Builder builder = new Builder(CheckInSystem.this);
+                builder.setTitle("修改");
+
+                // 自定义修改页
+                View v = View.inflate(CheckInSystem.this,R.layout.change,null);
+                final EditText Name00003 = (EditText)v.findViewById(R.id.Name0003);
+
+                final EditText Phone00003 = (EditText)v.findViewById(R.id.Phone0003);
+
+                final EditText QQ00003 = (EditText)v.findViewById(R.id.QQ0003);
+
+                Button phone = (Button)v.findViewById(R.id.buttonPhone);
+                phone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String PhoneNumber = Phone00003.getText().toString();
+                        Intent Intent =  new Intent(android.content.Intent.ACTION_DIAL, Uri.parse("tel:" + PhoneNumber));//跳转到拨号界面，同时传递电话号码
+                        startActivity(Intent);
+
+                    }
+                });
+
+                // Dialog弹出原内容
+
+                Name00003.setText(Sname);
+                Phone00003.setText(SPhone);
+                QQ00003.setText(SQQ);
+
+                builder.setView(v);
+
+
+                // 删除按钮点击事件
+                builder.setNeutralButton("删除", new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        AlertDialog.Builder builder1 = new Builder(CheckInSystem.this);
+                        builder1.setTitle("确定要删除吗？");
+                        builder1.setPositiveButton("确定", new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                delete(_id);
+                                replaceList();// 删除后刷新列表
+                            }
+                        });
+                        builder1.setNeutralButton("取消", new OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder1.create().show();
+
+                    }
+                });
+                // 取消按钮点击事件
+                builder.setNegativeButton("取消", new OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                // 确定按钮点击事件
+                builder.setPositiveButton("保存", new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String newName = Name00003.getText().toString();
+                        String newPhone = Phone00003.getText().toString();
+                        String newQQ = QQ00003.getText().toString();
+                        updata(newName, newPhone, newQQ ,_id);
+                        replaceList();// 更新后刷新列表
+
+                    }
+                });
+                builder.create().show();
+
+//                // 通过Dialog提示是否删除
+//                AlertDialog.Builder builder = new AlertDialog.Builder(
+//                        CheckInSystem.this);
+//                builder.setMessage("确定要删除吗？");
+//
+//                // 取消按钮点击事件
+//                builder.setNegativeButton("取消", new OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                builder.create().show();
+
+                return true;
+            }
+        });
+
+        //*************************短按修改**********************
+
+
+        values.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                // 获取所点击项的_id
+                TextView tv = (TextView) view.findViewById(R.id.id002);
+                final String _id = tv.getText().toString();
+
+                // 获取到达状态
+                TextView signin00002 = (TextView)view.findViewById(R.id.signin002);
+                final String SSigin = signin00002.getText().toString();
+
+                // 获取“点击签到”
+                TextView change00002 = (TextView)view.findViewById(R.id.change002);
+                final String SChange = change00002.getText().toString();
+
+                if ("是".equals(SSigin)){
+                    Log.i("是否为是",SSigin);
+                    change("未到达","点击签到",_id);
+                }else{
+                    change("是","点击取消",_id);
+                }
+
+                replaceList();// 更新后刷新列表
+                Log.i("修改后数据",SSigin);
+            }
+        });
     }
 }

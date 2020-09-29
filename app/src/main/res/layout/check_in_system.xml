@@ -184,7 +184,32 @@
 
 
         <!--    </TableRow>-->
-        <!--*********************数据库*********************-->
+
+
+    <!--*********************数据库未到*********************-->
+
+    <com.universality.checkinsystem.ListViewForScrollView
+        android:id="@+id/ListViewNo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.universality.checkinsystem.ListViewForScrollView>
+
+    <!--*********************数据库*********************-->
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            ></TextView>
+    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="所有同学"
+        android:layout_gravity="center"
+        ></TextView>
 
     <com.universality.checkinsystem.ListViewForScrollView
         android:id="@+id/ListView"
