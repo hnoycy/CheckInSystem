@@ -13,6 +13,9 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -22,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +44,49 @@ public class CheckInSystem extends AppCompatActivity {
 
     private DBOpenHelper dbOpenHelper;
 
+    //***************************重置键*********************************
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_bar, menu);
 
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.returnback:
+                //设置弹出窗口
+                AlertDialog.Builder builder = new AlertDialog.Builder(CheckInSystem.this);
+                builder.setMessage("确定要重置表格吗");
+                builder.setPositiveButton("确定", new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Return();
+                        finish();
+                    }
+                });
+                builder.setNeutralButton("取消", new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+
+                    }
+                });
+                builder.create().show();
+
+                return true;
+//            case R.id.write_p:
+//                Toast.makeText(this, "你点击了“发布”按键！", Toast.LENGTH_SHORT).show();
+//                return true;
+//            case R.id.favo_p:
+//                Toast.makeText(this, "你点击了“收藏”按键！", Toast.LENGTH_SHORT).show();
+//                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
 
@@ -48,6 +94,8 @@ public class CheckInSystem extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.check_in_system);
+
+
 
         //***************************增加键***********************************
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -511,6 +559,9 @@ public class CheckInSystem extends AppCompatActivity {
         DB.execSQL(updataSql, new String[] { Name, Phone, QQ, id });
     }
 
+    /**
+    *修改
+     */
     public  void change (String CheckIn ,String Change,String id){
         dbOpenHelper = new DBOpenHelper(CheckInSystem.this,"CheckIn",null,1);
         SQLiteDatabase DB = dbOpenHelper.getWritableDatabase();
@@ -521,4 +572,16 @@ public class CheckInSystem extends AppCompatActivity {
         Log.i("签到修改数据表","成功");
     }
 
+    /**
+     * 重置摁扭
+     */
+    public  void Return(){
+        dbOpenHelper = new DBOpenHelper(CheckInSystem.this,"CheckIn",null,1);
+        SQLiteDatabase DB = dbOpenHelper.getWritableDatabase();
+        DB.execSQL("DROP TABLE CheckInData");
+        Log.i("删除数据表","成功");
+        Intent intent = new Intent(CheckInSystem.this,CreatData.class);
+        startActivity(intent);
+
+    }
 }
